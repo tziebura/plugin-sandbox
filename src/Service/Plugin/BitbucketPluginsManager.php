@@ -123,7 +123,7 @@ class BitbucketPluginsManager implements PluginManager
             return true;
         }
 
-        $checkoutProcess = new Process(['git', '--git-dir=' . $pluginPath . '/.git', 'checkout', '--force', $version]);
+        $checkoutProcess = new Process(['git', '--git-dir=' . $pluginPath . '/.git', '--work-tree=' . $pluginPath, 'checkout', '--force', $version]);
         $checkoutProcess->run();
 
         if (!$checkoutProcess->isSuccessful()) {
