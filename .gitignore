@@ -1,4 +1,5 @@
 /vendor/
 /.idea/
 /plugins/
-/var/
+/var/log/
+/var/cache/
