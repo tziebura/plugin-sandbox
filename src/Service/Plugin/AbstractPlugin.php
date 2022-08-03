@@ -5,15 +5,17 @@ namespace App\Service\Plugin;
 abstract class AbstractPlugin
 {
     private PluginRepository $pluginRepository;
+    protected ServiceLocator $serviceLocator;
 
-    public function __construct(PluginRepository $pluginRepository)
+    public function __construct(PluginRepository $pluginRepository, ServiceLocator $serviceLocator)
     {
         $this->pluginRepository = $pluginRepository;
+        $this->serviceLocator = $serviceLocator;
     }
 
     abstract public function getName(): string;
 
-    public function isEnabled(string $depotId): bool
+    protected function isEnabled(string $depotId): bool
     {
         return $this->pluginRepository->isEnabled($this->getName(), $depotId);
     }

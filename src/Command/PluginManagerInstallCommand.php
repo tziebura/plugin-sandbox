@@ -21,7 +21,6 @@ class PluginManagerInstallCommand extends Command
         parent::__construct(self::$defaultName);
     }
 
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
